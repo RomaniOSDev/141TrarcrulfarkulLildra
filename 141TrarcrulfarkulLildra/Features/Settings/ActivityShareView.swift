@@ -1,0 +1,17 @@
+import SwiftUI
+import UIKit
+
+struct ActivityShareView: UIViewControllerRepresentable {
+    let items: [Any]
+
+    func makeUIViewController(context: Context) -> UIActivityViewController {
+        UIActivityViewController(activityItems: items, applicationActivities: nil)
+    }
+
+    func updateUIViewController(_ uiViewController: UIActivityViewController, context: Context) {}
+}
+
+struct ExportDocument: Identifiable {
+    let id = UUID()
+    let url: URL
+}
