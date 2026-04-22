@@ -5,35 +5,115 @@ import SwiftUI
 struct AppMeshBackground: View {
     var body: some View {
         ZStack {
-            Color.appBackground
-            LinearGradient(
-                colors: [
-                    Color.appPrimary.opacity(0.17),
-                    Color.appBackground.opacity(0.45),
-                ],
-                startPoint: .topLeading,
-                endPoint: .bottomTrailing
-            )
-            RadialGradient(
-                colors: [
-                    Color.appAccent.opacity(0.24),
-                    Color.appAccent.opacity(0.03),
-                ],
-                center: .topTrailing,
-                startRadius: 20,
-                endRadius: 480
-            )
-            RadialGradient(
-                colors: [
-                    Color.appPrimary.opacity(0.13),
-                    Color.clear,
-                ],
-                center: .bottomLeading,
-                startRadius: 30,
-                endRadius: 400
-            )
+            baseVerticalAtmosphere
+            diagonalColorWash
+            topAccentBloom
+            leadingPrimaryHaze
+            bottomAuroraBand
+            topSpecularSheen
+            subtleGridTexture
         }
         .ignoresSafeArea()
+    }
+
+    /// Lighter top → body → soft primary tint at bottom (readable, layered).
+    private var baseVerticalAtmosphere: some View {
+        LinearGradient(
+            colors: [
+                Color.appSurface,
+                Color.appBackground,
+                Color.appBackground,
+                Color.appPrimary.opacity(0.07),
+            ],
+            startPoint: .top,
+            endPoint: .bottom
+        )
+    }
+
+    private var diagonalColorWash: some View {
+        LinearGradient(
+            colors: [
+                Color.appPrimary.opacity(0.14),
+                Color.appBackground.opacity(0.2),
+                Color.appAccent.opacity(0.1),
+            ],
+            startPoint: .topLeading,
+            endPoint: .bottomTrailing
+        )
+    }
+
+    private var topAccentBloom: some View {
+        RadialGradient(
+            colors: [
+                Color.appAccent.opacity(0.38),
+                Color.appAccent.opacity(0.1),
+                Color.clear,
+            ],
+            center: UnitPoint(x: 0.9, y: 0.05),
+            startRadius: 10,
+            endRadius: 520
+        )
+    }
+
+    private var leadingPrimaryHaze: some View {
+        RadialGradient(
+            colors: [
+                Color.appPrimary.opacity(0.26),
+                Color.appPrimary.opacity(0.05),
+                Color.clear,
+            ],
+            center: UnitPoint(x: 0.04, y: 0.38),
+            startRadius: 20,
+            endRadius: 420
+        )
+    }
+
+    private var bottomAuroraBand: some View {
+        RadialGradient(
+            colors: [
+                Color.appPrimary.opacity(0.2),
+                Color.appAccent.opacity(0.12),
+                Color.clear,
+            ],
+            center: UnitPoint(x: 0.55, y: 1.05),
+            startRadius: 40,
+            endRadius: 580
+        )
+    }
+
+    private var topSpecularSheen: some View {
+        LinearGradient(
+            colors: [
+                Color.white.opacity(0.42),
+                Color.white.opacity(0.06),
+                Color.clear,
+            ],
+            startPoint: .top,
+            endPoint: UnitPoint(x: 0.5, y: 0.42)
+        )
+        .allowsHitTesting(false)
+    }
+
+    private var subtleGridTexture: some View {
+        Canvas { context, size in
+            let step: CGFloat = 32
+            var path = Path()
+            var x: CGFloat = 0
+            while x <= size.width {
+                path.move(to: CGPoint(x: x, y: 0))
+                path.addLine(to: CGPoint(x: x, y: size.height))
+                x += step
+            }
+            var y: CGFloat = 0
+            while y <= size.height {
+                path.move(to: CGPoint(x: 0, y: y))
+                path.addLine(to: CGPoint(x: size.width, y: y))
+                y += step
+            }
+            context.stroke(path, with: .color(Color.appPrimary.opacity(0.045)), lineWidth: 0.5)
+        }
+        .allowsHitTesting(false)
+        .blendMode(.multiply)
     }
 }
 

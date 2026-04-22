@@ -8,12 +8,12 @@ struct AchievementBanner: View {
         VStack(alignment: .leading, spacing: 8) {
             Text(title)
                 .font(.headline.weight(.semibold))
-                .foregroundStyle(Color.appTextPrimary)
+                .foregroundStyle(Color.appTextOnPrimary)
                 .lineLimit(1)
                 .minimumScaleFactor(0.7)
             Text(subtitle)
                 .font(.subheadline)
-                .foregroundStyle(Color.appTextPrimary.opacity(0.9))
+                .foregroundStyle(Color.appTextOnPrimary.opacity(0.9))
                 .lineLimit(2)
                 .minimumScaleFactor(0.7)
         }
@@ -36,7 +36,7 @@ struct AchievementBanner: View {
                 RoundedRectangle(cornerRadius: 16, style: .continuous)
                     .strokeBorder(
                         LinearGradient(
-                            colors: [Color.appAccent.opacity(0.55), Color.appTextPrimary.opacity(0.2)],
+                            colors: [Color.appAccent.opacity(0.55), Color.appTextOnPrimary.opacity(0.2)],
                             startPoint: .topLeading,
                             endPoint: .bottomTrailing
                         ),

@@ -89,7 +89,7 @@ struct PlanEditorView: View {
                 } label: {
                     Text("Save plan")
                         .font(.headline)
-                        .foregroundStyle(Color.appTextPrimary)
+                        .foregroundStyle(Color.appTextOnPrimary)
                         .frame(maxWidth: .infinity)
                         .frame(minHeight: 48)
                         .appPrimaryButtonChrome(enabled: canSave)

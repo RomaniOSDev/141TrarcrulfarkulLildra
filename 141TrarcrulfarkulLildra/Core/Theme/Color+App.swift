@@ -7,4 +7,5 @@ extension Color {
     static let appAccent = Color("AppAccent")
     static let appTextPrimary = Color("AppTextPrimary")
     static let appTextSecondary = Color("AppTextSecondary")
+    static let appTextOnPrimary = Color("AppTextOnPrimary")
 }

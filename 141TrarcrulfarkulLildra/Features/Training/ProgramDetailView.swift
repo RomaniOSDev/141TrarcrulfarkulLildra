@@ -135,7 +135,7 @@ struct ProgramDetailView: View {
         } label: {
             Text("Start session")
                 .font(.headline)
-                .foregroundStyle(Color.appTextPrimary)
+                .foregroundStyle(Color.appTextOnPrimary)
                 .frame(maxWidth: .infinity)
                 .frame(minHeight: 48)
                 .appPrimaryButtonChrome(enabled: fitness.isUnlocked(programId: effectiveProgram.id))

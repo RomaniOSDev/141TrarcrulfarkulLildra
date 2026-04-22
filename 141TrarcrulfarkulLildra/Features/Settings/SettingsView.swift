@@ -97,7 +97,7 @@ struct SettingsView: View {
                     } label: {
                         Text("Export plans backup")
                             .font(.headline)
-                            .foregroundStyle(Color.appTextPrimary)
+                            .foregroundStyle(Color.appTextOnPrimary)
                             .frame(maxWidth: .infinity)
                             .frame(minHeight: 48)
                             .appPrimaryButtonChrome()

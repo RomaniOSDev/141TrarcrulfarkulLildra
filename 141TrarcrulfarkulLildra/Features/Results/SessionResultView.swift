@@ -83,7 +83,7 @@ struct SessionResultView: View {
                         } label: {
                             Text("Next session")
                                 .font(.headline)
-                                .foregroundStyle(Color.appTextPrimary)
+                                .foregroundStyle(Color.appTextOnPrimary)
                                 .frame(maxWidth: .infinity)
                                 .frame(minHeight: 48)
                                 .appPrimaryButtonChrome()
@@ -95,7 +95,7 @@ struct SessionResultView: View {
                         } label: {
                             Text("Back to plans")
                                 .font(.headline)
-                                .foregroundStyle(Color.appTextPrimary)
+                                .foregroundStyle(Color.appTextOnPrimary)
                                 .frame(maxWidth: .infinity)
                                 .frame(minHeight: 48)
                                 .appPrimaryButtonChrome()

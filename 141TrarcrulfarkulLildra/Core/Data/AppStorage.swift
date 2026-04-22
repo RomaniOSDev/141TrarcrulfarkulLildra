@@ -367,7 +367,7 @@ final class FitnessData: ObservableObject {
 
     var achievementTitle: String {
         switch sessionsCompleted {
-        case 0: return "Begin your path"
+        case 0: return "Start here"
         case 1..<5: return "Committed starter"
         case 5..<15: return "Focused athlete"
         case 15..<30: return "Long-form specialist"

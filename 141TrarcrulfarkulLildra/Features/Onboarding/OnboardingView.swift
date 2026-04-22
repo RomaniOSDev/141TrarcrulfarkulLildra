@@ -224,7 +224,7 @@ private struct OnboardingStepPage: View {
         Button(action: onStart) {
             Text("Get Started")
                 .font(.headline)
-                .foregroundStyle(Color.appTextPrimary)
+                .foregroundStyle(Color.appTextOnPrimary)
                 .frame(maxWidth: .infinity)
                 .frame(minHeight: 52)
                 .appPrimaryButtonChrome()
